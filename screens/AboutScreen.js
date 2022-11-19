@@ -41,14 +41,14 @@ const AboutScreen = () => {
   if (partners.errMess) {
     return (
       <ScrollView>
-        <Animatbale.View animation="fadeInDown" duration={2000} delay={1000}>
+        <Animatable.View animation="fadeInDown" duration={2000} delay={1000}>
           <Mission />
           <Card>
             <Card.Title>Community Partners</Card.Title>
             <Card.Divider />
             <Text>{partners.errMess}</Text>
           </Card>
-        </Animatbale.View>
+        </Animatable.View>
       </ScrollView>
     );
   }
