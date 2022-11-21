@@ -13,6 +13,7 @@ import {
   DrawerItemList,
 } from "@react-navigation/drawer";
 import HomeScreen from "./HomeScreen";
+import LoginScreen from "./LoginScreen";
 import { Icon } from "react-native-elements";
 import logo from "../assets/images/logo.png";
 import { useDispatch } from "react-redux";
@@ -173,6 +174,29 @@ const FavoritesNavigator = () => {
   );
 };
 
+const LoginNavigator = () => {
+  const Stack = createStackNavigator();
+  return (
+    <Stack.Navigator screenOptions={screenOptions}>
+      <Stack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={({ navigation }) => ({
+          title: "Login",
+          headerLeft: () => (
+            <Icon
+              name="sign-in"
+              type="font-awesome"
+              iconStyle={styles.stackIcon}
+              onPress={() => navigation.toggleDrawer()}
+            />
+          ),
+        })}
+      />
+    </Stack.Navigator>
+  );
+};
+
 const CustomDrawerContent = (props) => (
   <DrawerContentScrollView {...props}>
     <View style={styles.drawerHeader}>
@@ -209,6 +233,21 @@ const Main = () => {
         drawerContent={CustomDrawerContent}
         drawerStyle={{ backgroundColor: "#CEC8FF" }}
       >
+        <Drawer.Screen
+          name="Login"
+          component={LoginNavigator}
+          options={{
+            drawerIcon: ({ color }) => (
+              <Icon
+                name="sign-in"
+                type="font-awesome"
+                size={24}
+                iconStyle={{ width: 24 }}
+                color={color}
+              />
+            ),
+          }}
+        />
         <Drawer.Screen
           name="Home"
           component={HomeNavigator}
