@@ -65,14 +65,14 @@ const LoginTab = ({ navigation }) => {
         center
         checked={remember}
         onPress={() => setRemember(!remember)}
-        containerStyle={styles.formCheckBox}
+        containerStyle={styles.formCheckbox}
       />
       <View style={styles.formButton}>
         <Button
           onPress={() => handleLogin()}
           title="Login"
           color="#5637DD"
-          Icon={
+          icon={
             <Icon
               name="sign-in"
               type="font-awesome"
@@ -87,8 +87,8 @@ const LoginTab = ({ navigation }) => {
         <Button
           onPress={() => navigation.navigate("Register")}
           title="Register"
-          color="clear"
-          Icon={
+          type="clear"
+          icon={
             <Icon
               name="user-plus"
               type="font-awesome"
@@ -96,7 +96,7 @@ const LoginTab = ({ navigation }) => {
               iconStyle={{ marginRight: 10 }}
             />
           }
-          buttonStyle={{ backgroundColor: "blue" }}
+          titleStyle={{ color: "blue" }}
         />
       </View>
     </View>
@@ -107,7 +107,7 @@ const RegisterTab = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
-  const [lastName, setLastname] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [remember, setRemember] = useState(false);
   const [imageUrl, setImageUrl] = useState(baseUrl + "images/logo.png");
@@ -155,7 +155,7 @@ const RegisterTab = () => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <View styles={styles.imageContainer}>
+        <View style={styles.imageContainer}>
           <Image
             source={{ uri: imageUrl }}
             loadingIndicatorSource={logo}
@@ -190,7 +190,7 @@ const RegisterTab = () => {
         <Input
           placeholder="Last Name"
           leftIcon={{ type: "font-awesome", name: "user-o" }}
-          onChangeText={(text) => setLastname(text)}
+          onChangeText={(text) => setLastName(text)}
           value={lastName}
           containerStyle={styles.formInput}
           leftIconContainerStyle={styles.formIcon}
@@ -208,14 +208,14 @@ const RegisterTab = () => {
           center
           checked={remember}
           onPress={() => setRemember(!remember)}
-          containerStyle={styles.formCheckBox}
+          containerStyle={styles.formCheckbox}
         />
         <View style={styles.formButton}>
           <Button
             onPress={() => handleRegister()}
             title="Register"
             color="#5637DD"
-            Icon={
+            icon={
               <Icon
                 name="user-plus"
                 type="font-awesome"
@@ -241,6 +241,7 @@ const LoginScreen = () => {
     inactiveTintColor: "#808080",
     labelStyle: { fontSize: 16 },
   };
+
   return (
     <Tab.Navigator tabBarOptions={tabBarOptions}>
       <Tab.Screen
@@ -274,14 +275,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     margin: 10,
   },
+  formIcon: {
+    marginRight: 10,
+  },
   formInput: {
     padding: 8,
     height: 60,
   },
-  formIcon: {
-    marginRight: 10,
-  },
-  formCheckBox: {
+  formCheckbox: {
     margin: 8,
     backgroundColor: null,
   },
